@@ -1,0 +1,113 @@
+<div *ngIf="equipo != undefined">
+	<h1>{{equipo.nombre}}</h1>
+</div>
+<div id="miGrafico01">
+	<highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+		style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+</div>
+<div *ngIf="equipo != undefined">
+	<table>
+		<tr>
+			<th colspan="2">¿Desea editar los resultados de su equipo?</th>
+		</tr>
+		<tr>
+			<th>Ganados:</th>
+			<th><input #equipoGanados placeholder="{{equipo.ganados}}" /></th>
+		</tr>
+		<tr>
+			<th>Empatados:</th>
+			<th><input #equipoEmpatados placeholder="{{equipo.empatados}}" /></th>
+		</tr>
+		<tr>
+			<th>Perdidos:</th>
+			<th><input #equipoPerdidos placeholder="{{equipo.perdidos}}" /></th>
+		</tr>
+		<tr>
+			<th><button (click)="goBack()">Volver</button></th>
+			<th><button (click)="save(equipoGanados.value, equipoEmpatados.value, equipoPerdidos.value)">Guardar</button>
+			</th>
+		</tr>
+	</table>
+
+	<br>
+	<p>Clicke en un jugador para editarlo</p>
+
+	<table>
+		<tr>
+			<th colspan="10">PLANTILLA DE {{equipo.nombre | uppercase}}</th>
+		</tr>
+		<tr>
+			<th>Dorsal</th>
+			<th>Nombre</th>
+			<th>Partidos Jugados</th>
+			<th>Minutos Jugados</th>
+			<th>Goles Encajados</th>
+			<th>Goles</th>
+			<th>Asistencias</th>
+			<th>Tarjetas Amarillas</th>
+			<th>Tarjetas Rojas</th>
+			<th>BORRAR</th>
+		</tr>
+		<tr *ngFor="let j of equipo.jugadores">
+			<td>{{j.dorsal}}</td>
+			<td><a routerLink="/jugador/{{j.dorsal}}/{{j.equipo}}">{{j.nombre}}</a></td>
+			<td>{{j.partidosJugados}}</td>
+			<td>{{j.minutosJugados}}</td>
+			<td>{{j.golesEncajados}}</td>
+			<td>{{j.goles}}</td>
+			<td>{{j.asistencias}}</td>
+			<td>{{j.tarjetasAmarillas}}</td>
+			<td>{{j.tarjetasRojas}}</td>
+			<td><button (click)="delete(j)">X</button></td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<th colspan="3">¿Desea añadir un nuevo jugador a {{equipo.nombre}}?</th>
+		</tr>
+		<tr>
+			<th class="">Dorsal:</th>
+			<th><input #jugadorDorsal /></th>
+		</tr>
+		<tr>
+			<th class="">Nombre:</th>
+			<th><input #jugadorNombre /></th>
+		</tr>
+		<tr>
+			<th class="">Partidos Jugados:</th>
+			<th><input #jugadorPartidos /></th>
+		</tr>
+		<tr>
+			<th class="">Minutos Jugados:</th>
+			<th><input #jugadorMinutos /></th>
+		</tr>
+		<tr>
+			<th class="">Goles Encajados:</th>
+			<th><input #jugadorGolesE /></th>
+		</tr>
+		<tr>
+			<th class="">Goles:</th>
+			<th><input #jugadorGoles /></th>
+		</tr>
+		<tr>
+			<th class="">Asistencias:</th>
+			<th><input #jugadorAsistencias /></th>
+		</tr>
+		<tr>
+			<th class="">Tarjetas Amarillas:</th>
+			<th><input #jugadorTarjetasA /></th>
+		</tr>
+		<tr>
+			<th class="">Tarjetas Rojas:</th>
+			<th><input #jugadorTarjetasR /></th>
+		</tr>
+		<tr>
+			<th colspan="2">
+			<button
+    			(click)="add(jugadorDorsal.value, jugadorNombre.value, jugadorPartidos.value, jugadorMinutos.value, jugadorGolesE.value, jugadorGoles.value, jugadorAsistencias.value, jugadorTarjetasA.value, jugadorTarjetasR.value); jugadorDorsal.value=''; jugadorNombre.value=''; jugadorPartidos.value=''; jugadorMinutos.value=''; jugadorGolesE.value=''; jugadorGoles.value=''; jugadorAsistencias.value=''; jugadorTarjetasA.value=''; jugadorTarjetasR.value=''"
+  			>Añadir
+  			</button></th>
+		</tr>
+	</table>
+</div>

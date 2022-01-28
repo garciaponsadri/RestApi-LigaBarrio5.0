@@ -1,0 +1,41 @@
+<div *ngIf="jugador != undefined">
+	<h2>Editar Jugador {{jugador.nombre | uppercase}}</h2>
+	<table>
+		<tr>
+			<th>Nombre:</th>
+			<th><input #jugadorNombre placeholder="{{jugador.nombre}}" /></th>
+		</tr>
+		<tr>
+			<th>Partidos Jugados:</th>
+			<th><input #jugadorPartidosJ placeholder="{{jugador.partidosJugados}}" /></th>
+		</tr>
+		<tr>
+			<th>Minutos Jugados:</th>
+			<th><input #jugadorMinutosJ placeholder="{{jugador.minutosJugados}}" /></th>
+		</tr>
+		<tr>
+			<th>Goles Encajados:</th>
+			<th><input #jugadorGolesE placeholder="{{jugador.golesEncajados}}" /></th>
+		</tr>
+		<tr>
+			<th>Goles:</th>
+			<th><input #jugadorGoles placeholder="{{jugador.goles}}" /></th>
+		</tr>
+		<tr>
+			<th>Asistencias:</th>
+			<th><input #jugadorAsistencias placeholder="{{jugador.asistencias}}" /></th>
+		</tr>
+		<tr>
+			<th>Tarjetas Amarillas:</th>
+			<th><input #jugadorTarjetasA placeholder="{{jugador.tarjetasAmarillas}}" /></th>
+		</tr>
+		<tr>
+			<th>Tarjetas Rojas:</th>
+			<th><input #jugadorTarjetasR placeholder="{{jugador.tarjetasRojas}}" /></th>
+		</tr>
+		<tr>
+			<th><button (click)="goBack()">Volver</button></th>
+			<th><button (click)="save(jugadorNombre.value, jugadorPartidosJ.value, jugadorMinutosJ.value, jugadorGolesE.value, jugadorGoles.value, jugadorAsistencias.value, jugadorTarjetasA.value, jugadorTarjetasR.value)">Guardar</button>
+			</th>
+		</tr>
+	</table>

@@ -1,0 +1,57 @@
+/* Add application styles & imports to this file! */
+
+* {
+  background-color: rgb(176, 255, 186);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+table {
+  font-family: verdana;
+  text-align: center;
+}
+
+th.pos {
+  text-align: right;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: bisque;
+  color: black;
+}
+
+td {
+  background-color: rgb(229, 229, 229);
+}
+
+a {
+  background-color: rgb(229, 229, 229);
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  background-color: bisque;
+  border-radius: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  border-color: black;
+  border-width: 2px;
+  border-collapse: separate;
+}
+
+button {
+  background-color: bisque;
+  font-size: 15px;
+  border-radius: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  border-color: black;
+  border-width: 2px;
+  border-collapse: separate;
+}

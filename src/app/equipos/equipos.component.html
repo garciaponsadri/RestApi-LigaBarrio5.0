@@ -1,0 +1,64 @@
+<br>
+<p>Esta es la clasificación actual de la liga de Barrio 20/21</p>
+<br>
+<p>Clicka en el nombre de un equipo para ver sus jugadores</p>
+<br>
+<table>
+	<tr>
+		<th>POS</th>
+		<th>ID</th>
+		<th>NOMBRE</th>
+		<th>PTS</th>
+		<th>G</th>
+		<th>E</th>
+		<th>P</th>
+		<th>GF</th>
+		<th>GC</th>
+		<th>DG</th>
+	</tr>
+	<tr *ngFor="let equipo of equipos; index as i">
+		<th class="pos">{{i+1}}</th>
+		<td>{{equipo.id}}</td>
+		<td><a routerLink="/equipo/{{equipo.id}}">{{equipo.nombre}}</a></td>
+		<td>{{equipo.puntos}}</td>
+		<td>{{equipo.ganados}}</td>
+		<td>{{equipo.empatados}}</td>
+		<td>{{equipo.perdidos}}</td>
+		<td>{{equipo.golesF}}</td>
+		<td>{{equipo.golesC}}</td>
+		<td>{{equipo.df}}</td>
+	</tr>
+</table>
+<br>
+<table class="anadir">
+	<tr>
+		<th colspan="2" style="text-align:center" class="anadir">¿Desea añadir un nuevo equipo?</th>
+	</tr>
+	<tr>
+		<th class="anadir">Acrónimo:</th>
+		<th class="anadir"><input #teamId /></th>
+	</tr>
+	<tr>
+		<th class="anadir">Nombre:</th>
+		<th class="anadir"><input #teamNombre /></th>
+	</tr>
+	<tr>
+		<th class="anadir">Partidos Ganados:</th>
+		<th class="anadir"><input #teamGanados /></th>
+	</tr>
+	<tr>
+		<th class="anadir">Partidos Empatados:</th>
+		<th class="anadir"><input #teamEmpatados /></th>
+	</tr>
+	<tr>
+		<th class="anadir">Partidos Perdidos:</th>
+		<th class="anadir"><input #teamPerdidos /></th>
+	</tr>
+	<tr>
+		<th colspan="2" class="anadir" style="text-align:center"><button
+    (click)="add(teamId.value, teamNombre.value, teamGanados.value, teamEmpatados.value, teamPerdidos.value); teamId.value=''; teamNombre.value=''; teamGanados.value=''; teamEmpatados.value=''; teamPerdidos.value=''"
+  >
+    Añadir
+  </button></th>
+	</tr>
+</table>
